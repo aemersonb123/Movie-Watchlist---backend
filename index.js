@@ -21,6 +21,8 @@ app.use('/api/users', usersRoute);
 app.use('/api/movies', moviesRoute);
 app.use('/api/watchlist', watchlistRoute);
 
+require('./error-handling')(app);
+
 const MONGO_URI =
   config.get('mongoURI') || 'mongodb://localhost:27017/movie-watchlist';
 mongoose.connect(MONGO_URI, () => console.log('Connected to mongodb...'));
