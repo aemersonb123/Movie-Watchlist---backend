@@ -16,11 +16,15 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024,
     required: true,
   },
+  watchlist: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Watchlist',
+  },
 });
 
 userSchema.method('generateAuthToken', function () {
   const token = jwt.sign(
-    { username: this.username, _id: this._id },
+    { username: this.username, _id: this._id, watchlistId: this.watchlist },
     config.get('jwtPrivateKey')
   );
   return token;
