@@ -5,10 +5,12 @@ const config = require('config');
 
 const authRoute = require('./routes/auth');
 const usersRoute = require('./routes/users');
+const moviesRoute = require('./routes/movies');
 
 app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
+app.use('/api/movies', moviesRoute);
 
 const MONGO_URI =
   config.get('mongoURI') || 'mongodb://localhost:27017/movie-watchlist';
