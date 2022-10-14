@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "watchlist_jwtPrivateKey",
+  "mongoURI": "watchlist_mongoURI"
+}
